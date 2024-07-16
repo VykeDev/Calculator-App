@@ -32,3 +32,10 @@ body {
   grid-template-columns: auto auto auto auto;
   grid-row: auto auto auto auto auto;
 }
+.enter {
+  grid-column: -3/-1;
+}
+
+.AC {
+  grid-column: 1/3;
+}

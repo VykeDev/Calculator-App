@@ -13,7 +13,7 @@ function AddButton(props) {
 }
 
 function App() {
-  const [subScreen, setSubScreen] = useState("sub-screen");
+  const [subScreen, setSubScreen] = useState("");
   const [mainScreen, setMainScreen] = useState("");
 
   function add(e) {
@@ -29,7 +29,13 @@ function App() {
     setSubScreen("");
   }
 
-  function calculate() {}
+  function calculate() {
+    const answer = eval(mainScreen);
+    setMainScreen("");
+    setSubScreen(
+      `${mainScreen} = ${answer || answer === 0 ? answer : "error"}`
+    );
+  }
   return (
     <div className="calculator-app">
       <div className="screen">
@@ -37,7 +43,7 @@ function App() {
         <p className="main-screen">{mainScreen}</p>
       </div>
       <div className="bord">
-        <button className="button" onClick={clear}>
+        <button className="button AC" onClick={clear}>
           AC
         </button>
         <button className="button" onClick={remove}>
@@ -58,11 +64,9 @@ function App() {
         <AddButton value={3} addFunction={add} />
         <AddButton value={"+"} addFunction={add} />
         <AddButton value={0} addFunction={add} />
-        <button className="button" onClick={calculate}>
+        <button className="button enter" onClick={calculate}>
           =
         </button>
-        <AddButton value={"("} addFunction={add} />
-        <AddButton value={")"} addFunction={add} />
       </div>
     </div>
   );
