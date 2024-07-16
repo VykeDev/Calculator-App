@@ -1,9 +1,13 @@
+import { useState } from "react";
+
 function App() {
+  const [subScreen, setSubScreen] = useState("sub-screen");
+  const [mainScreen, setMainScreen] = useState("main-screen");
   return (
     <div className="calculator-app">
       <div className="screen">
-        <p className="sub-screen"></p>
-        <p className="main-screen"></p>
+        <p className="sub-screen">{subScreen}</p>
+        <p className="main-screen">{mainScreen}</p>
       </div>
       <div className="bord">
         <button className="button">AC</button>
